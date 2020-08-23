@@ -11,7 +11,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package main
+package collector
 
 import (
 	"context"
@@ -209,6 +209,10 @@ type collector struct {
 	target string
 	module *config.Module
 	logger log.Logger
+}
+
+func New(ctx context.Context, target string, module *config.Module, logger log.Logger) *collector {
+	return &collector{ctx: ctx, target: target, module: module, logger: logger}
 }
 
 // Describe implements Prometheus.Collector.
