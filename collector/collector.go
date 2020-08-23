@@ -505,7 +505,7 @@ func bits(metric *config.Metric, value interface{}, labelnames, labelvalues []st
 		bit := 0.0
 		// Most significant byte most significant bit, then most significant byte 2nd most significant bit etc.
 		if k < len(bytes)*8 {
-			if (bytes[k/8] & (128 >> (k % 8))) != 0 {
+			if (bytes[k/8] & (128 >> uint(k%8))) != 0 {
 				bit = 1.0
 			}
 		}
